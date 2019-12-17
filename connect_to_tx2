@@ -1,0 +1,5 @@
+echo 1 > /proc/sys/net/ipv4/ip_forward;
+iptables -F;
+iptables -P INPUT ACCEPT;
+iptables -P FORWARD ACCEPT;
+iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE;
